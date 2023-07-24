@@ -1,0 +1,134 @@
+<style>
+    body {
+        background-color: #f2f2f2;
+    }
+
+    .container {
+        margin-top: 100px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #006
+    }
+
+    .btn-primary:focus {
+        box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.5);
+    }
+
+    .btn-primary:active {
+        background-color: #0062cc;
+        border-color: #005cbf;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.25);
+    }
+
+    .text-center {
+        margin-top: 20px;
+    }
+
+    element.style {}
+
+    .col-md-6 {
+        width: 35%
+    }
+</style>
+
+
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center">Signup</h1>
+            <form action="/signup" method="post" name="basic" onsubmit="return validateBasic()">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3" >
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    {{#if errE}}
+                        <p style="text-align: center; color:red" id="msg">{{errE}}</p>
+                    {{/if}}
+                </div>
+                <div class="mb-3" >
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                    {{#if errU}}
+                        <p style="text-align: center; color:red" id="msg">{{errU}}</p>
+                    {{/if}}
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="d-grid gap-2 mb-3">
+                    <button type="submit" class="btn btn-primary" action="/">Signup</button>
+                </div>
+            </form>
+            <div class="text-center">
+                <p>Already have an account? <a href="/login">Login here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+ <script>
+    
+function validateBasic() {
+    var name = document.forms["basic"]["name"].value.trim();
+    var email = document.forms["basic"]["email"].value.trim();
+    var username =document.forms['basic']['username'].value.trim()
+    var password = document.forms["basic"]["password"].value;
+
+    // Validation for name field
+    if (name == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+
+    // Validation for email field
+    if (email == "") {
+        alert("Email must be filled out");
+        return false;
+    } else {
+        // regex for email validation
+        var email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if (!email_regex.test(email)) {
+            alert("Invalid email address");
+            return false;
+        }
+    }
+   //validation for username
+     if (username == "") {
+        alert("Username must be filled out");
+        return false;
+    }
+
+
+    // Validation for password field
+    if (password == "") {
+        alert("Password must be filled out");
+        return false;
+    }
+
+    return true; // form is valid
+}
+
+
+
+      setTimeout(() => {
+         document.getElementById('msg').style.display = 'none'
+      }, 3000)
+   
+      </script>

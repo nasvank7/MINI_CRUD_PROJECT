@@ -1,0 +1,59 @@
+<style>
+  body {
+    background-color: rgb(5, 166, 246);
+  }
+
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 100px;
+  }
+
+  form {
+    background-color: #d4eeeb;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  input[type="file"] {
+    margin-top: 5px;
+  }
+</style>
+
+
+<div class="container">
+  <form action="/login" method="post">
+    <h2>Login</h2>
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+      {{#if err}}
+      <p style="text-align: center; color:red" id="msg">Invalid username or password</p>
+      {{/if}}
+    </div>
+    <button type="submit" class="btn btn-primary" action="/login">Login</button>
+    <p class="mt-3">New user? <a href="/signup">Sign up here.</a></p>
+  </form>
+</div>
+ <script>
+      setTimeout(() => {
+         document.getElementById('msg').style.display = 'none'
+      }, 3000)
+   
+
+   
+      </script>
+  

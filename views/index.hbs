@@ -1,0 +1,33 @@
+<style>
+    .card {
+        margin-right: 20px;
+        /* add some space between cards */
+        margin-bottom: 20px;
+    }
+
+    .row {
+        display: flex;
+        /* align cards horizontally */
+        flex-wrap: wrap;
+        /* allow cards to wrap to the next line */
+        justify-content: center;
+        /* center the cards within the container */
+    }
+</style>
+
+<section>
+    <div class="container mt-5">
+        <div class="row">
+            {{#each products}}
+            <div class="card" style="width: 18rem;">
+                <img src="{{this.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

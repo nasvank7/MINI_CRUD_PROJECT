@@ -1,0 +1,49 @@
+<style>
+  body {
+    background-color: rgb(5, 166, 246);
+  }
+
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 100px;
+  }
+
+  form {
+    background-color: #d4eeeb;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  input[type="file"] {
+    margin-top: 5px;
+  }
+</style>
+
+
+<div class="container">
+  <form action="/admin/login" method="post">
+    <h2>Admin Login</h2>
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" placeholder="Enter username" name="Username" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" name="Password" required>
+      {{#if err}}
+      <p style="text-align: center; color:red">Invalid username or password</p>
+      {{/if}}
+    </div>
+    <button type="submit" class="btn btn-primary" action="/admin/login" method="post">Login</button>
+  </form>
+</div>

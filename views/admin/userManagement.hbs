@@ -1,0 +1,41 @@
+<section>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each user}}
+        <tr>
+          <td scope="row" class="index"></td>
+          <td>{{this.name}}</td>
+          <td>{{this.username}}</td>
+          <td>{{this.email}}</td>
+          <td>
+            <a class="btn btn-primary" href="/admin/editUser/{{this._id}}">Edit</a>
+            <a class="btn btn-danger" href="/admin/deleteUser/{{this._id}}">Delete</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <div class="container">
+    <a href="/admin/addUser" class="btn btn-primary">Add User</a>
+  </div>
+</section>
+
+
+<script>
+  let index = document.getElementsByClassName('index');
+
+  for(let i=0; i<index.length; i++){
+    index[i].innerHTML = i+1;
+  }
+</script>
